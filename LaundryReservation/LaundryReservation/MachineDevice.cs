@@ -4,7 +4,11 @@ namespace LaundryReservation
 {
   public class MachineDevice : IMachineDevice
   {
-    public bool IsLocked { get; private set; }
+    /**
+     * a device is unlocked for use by the user (i.e. a machine is always locked until the pin is entered). 
+     * there is a difference between machine availability and lock.
+     */
+    public bool IsLocked { get; set; }
     public Guid Id { get; }
 
     public MachineDevice(Guid id)

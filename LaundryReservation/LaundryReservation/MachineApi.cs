@@ -22,5 +22,10 @@ namespace LaundryReservation
       }
       return false;
     }
+
+    public void UnlockMachine(Guid id)
+    {
+      _database.GetMachineDevice(id)?.Unlock();
+    }
   }
 }

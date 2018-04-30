@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Book>
+
+@{
+  ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<table class="table">
+  <tr>
+    <th>
+      ISBN
+    </th>
+    <th>
+      Author
+    </th>
+    <th>
+      Language
+    </th>
+    <th>
+      Pages
+    </th>
+    <th>
+      Publisher ID
+    </th>
+    <th>
+      Title
+    </th>
+  </tr>
+  @foreach (var item in Model)
+  {
+  <tr>
+    <td>
+      @Html.DisplayFor(x => item.ISBN)
+    </td>
+    <td>
+      @Html.DisplayFor(x => item.Author)
+    </td>
+    <td>
+      @Html.DisplayFor(x => item.Language)
+    </td>
+    <td>
+      @Html.DisplayFor(x => item.Pages)
+    </td>
+    <td>
+      @Html.DisplayFor(x => item.Publisher.ID)
+    </td>
+    <td>
+      @Html.DisplayFor(x => item.Title)
+    </td>
+  </tr>
+  }
+</table>

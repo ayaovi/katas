@@ -22,20 +22,9 @@ namespace LaundryReservation
     public bool Reserve(Guid machineId, DateTime time)
     {
       if (!_schedules.TryGetValue(machineId, out var schedule)) return false;
-      if (schedule.Any(x => x.OverlapWith(new TimeRange { Start = time, End = time.AddMinutes(30) }))) return false;
+      if (schedule.Any(x => x.OverlapsWith(new TimeRange { Start = time, End = time.AddMinutes(30) }))) return false;
       schedule.Add(new TimeRange { Start = time, End = time.AddMinutes(30) });
       return true;
-    }
-  }
-
-  internal class TimeRange
-  {
-    public DateTime Start { get; set; }
-    public DateTime End { get; set; }
-
-    public bool OverlapWith(TimeRange range)
-    {
-      return !(range.Start > End || range.End < Start);
     }
   }
 }

@@ -63,9 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LaundryMasterTests.cs" />
+    <Compile Include="MachineApiTests.cs" />
     <Compile Include="MachineDeviceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchedulerTests.cs" />
+    <Compile Include="TimeRangeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
