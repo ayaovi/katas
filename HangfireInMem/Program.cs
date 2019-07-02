@@ -12,7 +12,7 @@ namespace HangfireInMem
 
       using (new BackgroundJobServer())
       {
-        RecurringJob.AddOrUpdate(() => Routine(), Cron.Minutely);
+        RecurringJob.AddOrUpdate(() => Routine(), Cron.Hourly);
         Console.ReadKey();
       }
     }
