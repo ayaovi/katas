@@ -2,102 +2,162 @@ using FluentAssertions;
 using src;
 using Xunit;
 
-namespace test {
-  public class UtilitiesTest {
+namespace test
+{
+  public class UtilitiesTest
+  {
     [Fact]
-    public void RemoveDuplicates_GivenListWithoutDuplicates_ExpectSuccess () {
+    public void RemoveDuplicates_GivenListWithoutDuplicates_ExpectSuccess()
+    {
       //Given
-      var expected = new LinkedList ();
-      expected.Head = new Node (0);
-      expected.Head.Next = new Node (1);
-      expected.Head.Next.Next = new Node (2);
-      expected.Head.Next.Next.Next = new Node (3);
+      var expected = new LinkedList();
+      expected.Head = new Node(0);
+      expected.Head.Next = new Node(1);
+      expected.Head.Next.Next = new Node(2);
+      expected.Head.Next.Next.Next = new Node(3);
 
-      var list = new LinkedList ();
-      list.Head = new Node (0);
-      list.Head.Next = new Node (1);
-      list.Head.Next.Next = new Node (2);
-      list.Head.Next.Next.Next = new Node (3);
+      var list = new LinkedList();
+      list.Head = new Node(0);
+      list.Head.Next = new Node(1);
+      list.Head.Next.Next = new Node(2);
+      list.Head.Next.Next.Next = new Node(3);
 
       //When
-      var actual = Utilities.RemoveDuplicates (list);
+      var actual = Utilities.RemoveDuplicates(list);
 
       //Then
-      actual.Should ().BeEquivalentTo (expected);
+      actual.Should().BeEquivalentTo(expected);
     }
 
     [Fact]
-    public void RemoveDuplicates_GivenListWithDuplicates_ExpectSuccess () {
+    public void RemoveDuplicates_GivenListWithDuplicates_ExpectSuccess()
+    {
       //Given
-      var expected = new LinkedList ();
-      expected.Head = new Node (0);
-      expected.Head.Next = new Node (1);
-      expected.Head.Next.Next = new Node (2);
-      expected.Head.Next.Next.Next = new Node (3);
+      var expected = new LinkedList();
+      expected.Head = new Node(0);
+      expected.Head.Next = new Node(1);
+      expected.Head.Next.Next = new Node(2);
+      expected.Head.Next.Next.Next = new Node(3);
 
-      var list = new LinkedList ();
-      list.Head = new Node (0);
-      list.Head.Next = new Node (1);
-      list.Head.Next.Next = new Node (2);
-      list.Head.Next.Next.Next = new Node (2);
-      list.Head.Next.Next.Next.Next = new Node (3);
+      var list = new LinkedList();
+      list.Head = new Node(0);
+      list.Head.Next = new Node(1);
+      list.Head.Next.Next = new Node(2);
+      list.Head.Next.Next.Next = new Node(2);
+      list.Head.Next.Next.Next.Next = new Node(3);
 
       //When
-      var actual = Utilities.RemoveDuplicates (list);
+      var actual = Utilities.RemoveDuplicates(list);
 
       //Then
-      actual.Should ().BeEquivalentTo (expected);
+      actual.Should().BeEquivalentTo(expected);
     }
 
     [Fact]
-    public void Merge_GivenTwoArrays_ExpectBiggerArray () {
+    public void Merge_GivenTwoArrays_ExpectBiggerArray()
+    {
       //Given
-      var arr1 = new [] { 1, 2, 3 };
-      var arr2 = new [] { 2, 4, 5 };
-      var expected = new [] { 1, 2, 2, 3, 4, 5 };
+      var arr1 = new[] { 1, 2, 3 };
+      var arr2 = new[] { 2, 4, 5 };
+      var expected = new[] { 1, 2, 2, 3, 4, 5 };
 
       //When
-      var actual = Utilities.Merge (arr1, arr2);
+      var actual = Utilities.Merge(arr1, arr2);
 
       //Then
-      actual.Should ().BeEquivalentTo (expected);
+      actual.Should().BeEquivalentTo(expected);
     }
 
     [Fact]
-    public void Merge_GivenTwoArrays_ExpectBiggerArray1 () {
+    public void Merge_GivenTwoArrays_ExpectBiggerArray1()
+    {
       //Given
-      var arr1 = new [] { 1, 3 };
-      var arr2 = new [] { 2, 4, 5 };
-      var expected = new [] { 1, 2, 3, 4, 5 };
+      var arr1 = new[] { 1, 3 };
+      var arr2 = new[] { 2, 4, 5 };
+      var expected = new[] { 1, 2, 3, 4, 5 };
 
       //When
-      var actual = Utilities.Merge (arr1, arr2);
+      var actual = Utilities.Merge(arr1, arr2);
 
       //Then
-      actual.Should ().BeEquivalentTo (expected);
+      actual.Should().BeEquivalentTo(expected);
     }
 
     [Fact]
-    public void RangeCopy_GivenValidRange_ExpectSubArray () {
+    public void RangeCopy_GivenValidRange_ExpectSubArray()
+    {
       //Given
-      var arr = new [] { 1, 2, 3, 4, 5 };
-      var expected = new [] { 2, 3, 4 };
+      var arr = new[] { 1, 2, 3, 4, 5 };
+      var expected = new[] { 2, 3, 4 };
 
       //When
-      var actual = arr.RangeCopy (1, 3);
+      var actual = arr.RangeCopy(1, 3);
 
       //Then
-      actual.Should ().BeEquivalentTo (expected);
+      actual.Should().BeEquivalentTo(expected);
     }
 
     [Fact]
-    public void MergeSort_GivenUnsortedArray_ExpectSortedArray () {
+    public void MergeSort_GivenUnsortedArray_ExpectSortedArray()
+    {
       //Given
-      var arr = new [] { 30, 8, 0, 21, 5, 2, 11 };
-      var expected = new [] { 0, 2, 5, 8, 11, 21, 30 };
+      var arr = new[] { 30, 8, 0, 21, 5, 2, 11 };
+      var expected = new[] { 0, 2, 5, 8, 11, 21, 30 };
 
       //When
       var actual = arr.MergeSort(0, arr.Length - 1);
+
+      //Then
+      actual.Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void Swap_GivenArrayAndSameIndex_ExpectNoChange()
+    {
+      //Given
+      var actual = new[] { 1, 2 };
+      var expected = new[] { 1, 2 };
+
+      //When
+      actual.Swap(0, 0);
+
+      //Then
+      actual.Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void Swap_GivenArrayAndDifferentIndices_ExpectSwap()
+    {
+      //Given
+      var actual = new[] { 1, 2 };
+      var expected = new[] { 2, 1 };
+
+      //When
+      actual.Swap(0, 1);
+
+      //Then
+      actual.Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void Partition_GivenValidParameters_ExpectPartition()
+    {
+      //Given
+      var arr = new[] { 1, 7, 3, 9, 4, 2 };
+
+      //When && Then
+      Assert.Equal(1, arr.Partition(0, arr.Length - 1));
+    }
+
+    [Fact]
+    public void QuickSort_GivenValidParameters_ExpectSortedArray()
+    {
+      //Given
+      var actual = new[] { 1, 7, 3, 9, 4, 2 };
+      var expected = new[] { 1, 2, 3, 4, 7, 9 };
+
+      //When
+      actual.QuickSort(0, actual.Length - 1);
 
       //Then
       actual.Should().BeEquivalentTo(expected);
