@@ -16,7 +16,7 @@ namespace src
             if (d % 2 != 0) return false;
             foreach (var i in a)
             {
-                if (b.FirstOrDefault(y => y == i + d / 2) == 0) return true;
+                if (b.Any(y => y == i + d / 2)) return true;
             }
             return false;
         }
